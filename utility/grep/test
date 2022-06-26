@@ -1,0 +1,31 @@
+#!/bin/bash
+
+patterns=(
+		"Kim"
+		"[Kk]im"
+		"^D"
+		"8$"
+		"Kang Hong"
+		"5\.." "\.5"
+		"^[SB]"
+		"^[0-9]"
+		"[a-z][a-z] [A-Z]"
+		"ng*"
+		"[a-z]\{5\}"
+		"\<Dae"
+		"\<[A-Z].*n\>"
+)
+
+do_grep() {
+	echo ""
+	echo "grep \"$1\" testfile"
+	grep "$1" testfile
+	echo "================================"
+	sleep 1
+}
+
+for idx in "${patterns[@]}"; do
+	do_grep "${idx}" # "": for "Kang Hong" and "[a-z][a-z] [A-Z]"
+done
+
+# ./test 2>&1 | tee -a output
