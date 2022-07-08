@@ -120,10 +120,3 @@ target: ls, system call: open, read::
 
 	$ strace -c ls /home
 
-
-
-
-
-
-
-
