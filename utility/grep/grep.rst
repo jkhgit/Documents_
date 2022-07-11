@@ -8,5 +8,10 @@ grep [option] [pattern] [file]
 *It shows various results depending on their options.*
 
 about:
+::
+	$ man grep
 
-$ man grep
+ps.
+
+- egrep: extended grep.
+- fgrep: fast grep or fixed grep. can't use metachars.
