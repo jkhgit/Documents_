@@ -9,7 +9,7 @@ grep [option] [pattern] [file]
 
 about:
 ::
-	$ man grep
+  $ man grep
 
 ps.
 

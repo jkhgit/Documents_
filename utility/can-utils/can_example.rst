@@ -6,16 +6,16 @@ can setting
 
 1. setting
 ::
-	$ ip link set can0 type can bitrate 125000
-	$ ip link set can0 up
-	$ ip -d link show can0
+  $ ip link set can0 type can bitrate 125000
+  $ ip link set can0 up
+  $ ip -d link show can0
 
 2. can info
 ::
-	bitrate 125000 sample-point 0.875
-	tq 500 prop-seg 6 phase-seg1 7 phase-seg2 2 sjw 1 # sync-seg = 1 (fixed)
-	mcp251x: tseg1 3..16 tseg2 2..8 sjw 1..4 brp 1..64 brp-inc 1
-	clock 8000000 numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535
+  bitrate 125000 sample-point 0.875
+  tq 500 prop-seg 6 phase-seg1 7 phase-seg2 2 sjw 1 # sync-seg = 1 (fixed)
+  mcp251x: tseg1 3..16 tseg2 2..8 sjw 1..4 brp 1..64 brp-inc 1
+  clock 8000000 numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535
 
 *paprams calculation*
 
@@ -29,11 +29,11 @@ targets
 
 1. receive target
 ::
-	candump can0
+  candump can0
 
 2. transmit target
 ::
-	cansend can0 500#a5.a5.a5.a5.a0.a0.a0.a0
+  cansend can0 500#a5.a5.a5.a5.a0.a0.a0.a0
 
 oscilloscope
 ------------------
@@ -49,15 +49,15 @@ case 2. use 2ch
 
 standard can signal
 ::
-	01010000010000010100010100101101001011010010110100101101000001101000001101000001101000001 ..............
-	|  |   | |  || |    |       |       |       |       |       ||       ||       ||       || \      \      \
-	|  |   | |  || |    |       |       |       |       |       ||       ||       ||       ||  \      \      \
-	|  |   | |  || |    |       |       |       |       |       ||       ||       ||       ||   \      \      \
-	S 5|  0| | 0|| |    |    a.5|    a.5|    a.5|    a.5|    a.0||    a.0||    a.0||    a.0||    \      \      \
-	O        |   | |    |                                        |        |        |        |     \      \      \
-	F        |   R | CTR|                                        |        |        |        |      \      \      \
-	         |   B |                                             |        |        |        |       |     |      |
-	         |     |                                             |        |        |        |       |     |      |
-	         stuff stuff                                         stuff    stuff    stuff    stuff   | CRC |  EOF |
+  01010000010000010100010100101101001011010010110100101101000001101000001101000001101000001 ..............
+  |  |   | |  || |    |       |       |       |       |       ||       ||       ||       || \      \      \
+  |  |   | |  || |    |       |       |       |       |       ||       ||       ||       ||  \      \      \
+  |  |   | |  || |    |       |       |       |       |       ||       ||       ||       ||   \      \      \
+  S 5|  0| | 0|| |    |    a.5|    a.5|    a.5|    a.5|    a.0||    a.0||    a.0||    a.0||    \      \      \
+  O        |   | |    |                                        |        |        |        |     \      \      \
+  F        |   R | CTR|                                        |        |        |        |      \      \      \
+           |   B |                                             |        |        |        |       |     |      |
+           |     |                                             |        |        |        |       |     |      |
+           stuff stuff                                         stuff    stuff    stuff    stuff   | CRC |  EOF |
 
 *Make sure to check the 1-bit time with the oscilloscope*

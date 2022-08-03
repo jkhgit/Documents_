@@ -7,9 +7,9 @@ vim
 
 1. input
 ::
-	a
-	i
-	o
+  a
+  i
+  o
 
 - a: input at next of cursor
 - i: input at cursor
@@ -17,14 +17,14 @@ vim
 
 2. visual
 ::
-	v
-	ctrl + v # vertical
+  v
+  ctrl + v # vertical
 
 **vi utils**
 
 1. cursor
 ::
-	hjkl
+  hjkl
 
 - h: left
 - j: down 
@@ -33,18 +33,18 @@ vim
 
 2. copy & paste
 ::
-	y
-	p
+  y
+  p
 
 - y: copy
 - p: paste
 
 3. vi commands
 ::
-	:bd
-	:q
-	:%s
-	:w
+  :bd
+  :q
+  :%s
+  :w
 
 - bd: exit vi's tab
 - q: exit
@@ -53,8 +53,8 @@ vim
 
 4. vi hot keys
 ::
-	ctrl + w + f
-	ctrl + w + g + f
+  ctrl + w + f
+  ctrl + w + g + f
 
 - ctrl + w + f: open header file 1 
 - ctrl + w + g + f: open header file 2

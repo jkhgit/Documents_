@@ -64,33 +64,33 @@ dynamic solution.
 
 .. code-block:: C
 
-	int resource_table[3] = {9, 3, 6}; // r1, r2, r3
+  int resource_table[3] = {9, 3, 6}; // r1, r2, r3
 
-	int claim_table[][3] = {
-	/*	r1, r2, r3	*/
-		{3, 2, 2}, // p1
-		{6, 1, 3}, // p2
-		{3, 1, 4}, // p3
-		{4, 2, 2}  // p4
-	}
+  int claim_table[][3] = {
+  /*	r1, r2, r3	*/
+  	{3, 2, 2}, // p1
+  	{6, 1, 3}, // p2
+  	{3, 1, 4}, // p3
+  	{4, 2, 2}  // p4
+  }
 
-	int alloc_table[][3] = {
-	/*	r1, r2, r3	*/
-		{1, 0, 0}, // p1
-		{6, 1, 2}, // p2
-		{2, 1, 1}, // p3
-		{0, 0, 2}  // p4
-	}
+  int alloc_table[][3] = {
+  /*	r1, r2, r3	*/
+  	{1, 0, 0}, // p1
+  	{6, 1, 2}, // p2
+  	{2, 1, 1}, // p3
+  	{0, 0, 2}  // p4
+  }
 
-	int need_table[][3] = {
-	/*	r1, r2, r3	*/
-		{2, 2, 2}, // p1
-		{0, 0, 1}, // p2
-		{1, 0, 3}, // p3
-		{4, 2, 0}  // p4
-	}
+  int need_table[][3] = {
+  /*	r1, r2, r3	*/
+  	{2, 2, 2}, // p1
+  	{0, 0, 1}, // p2
+  	{1, 0, 3}, // p3
+  	{4, 2, 0}  // p4
+  }
 
-	int useful_table[3] = {1, 1, 1} // r1, r2, r3
+int useful_table[3] = {1, 1, 1} // r1, r2, r3
 
 Avoidance: Prevent the Deadlock situation *in advance.*
 

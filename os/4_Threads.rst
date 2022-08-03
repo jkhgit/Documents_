@@ -22,14 +22,14 @@ user level
 kernel level
 
 (ULT)
-	App & Thread		User level
+  App & Thread    User level
 @@@@@@@@@@@@@@@@@@@@@@@@@
-	Process				Kernel level
+  Process        Kernel level
 
 (KLT)
-	App & Thread		User level
+  App & Thread    User level
 @@@@@@@@@@@@@@@@@@@@@@@@@
-	Process & Thread	Kernel level
+  Process & Thread  Kernel level
 
 state
 ------------------

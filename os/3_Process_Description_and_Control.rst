@@ -4,10 +4,10 @@ process: a instance of running program
 program: program cmd group
 
 [program] -> (run)
-			: process
-				thread 1
-				thread 2
-				thread 3
+      : process
+        thread 1
+        thread 2
+        thread 3
 
 *resource utilize -> by process*
 
@@ -26,9 +26,9 @@ real-time transaction system: Round-Robin scheduling (RR)
 Dispatch
 
 case ::
-	1. (enter) -> "Not Running" -> Dispatch(OS) -> "Running" -> (exit)
+  1. (enter) -> "Not Running" -> Dispatch(OS) -> "Running" -> (exit)
 
-	2. "Runnint" -> (pause) > "Not Running" -> (exit)
+  2. "Runnint" -> (pause) > "Not Running" -> (exit)
 
 5-state process model
 ------------------
@@ -49,21 +49,21 @@ Dispatch
 5 ~ 8: prcess swapping
 
 case ::
-	1. "New" -> (admit) -> "Ready" -> Dispatch -> "Running" -> (release) -> (exit)
+  1. "New" -> (admit) -> "Ready" -> Dispatch -> "Running" -> (release) -> (exit)
 
-	2. "Running" -> (time out) -> "Ready"
+  2. "Running" -> (time out) -> "Ready"
 
-	3. "Running" -> (event wait) -> "Block"
+  3. "Running" -> (event wait) -> "Block"
 
-	4. "Block" -> (events occurs) -> "Ready"
+  4. "Block" -> (events occurs) -> "Ready"
 
-	5. "Block" -> (suspend) -> "Blocked/suspended"
+  5. "Block" -> (suspend) -> "Blocked/suspended"
 
-	6. "Block/suspended" -> (activate) -> "Blocked"
+  6. "Block/suspended" -> (activate) -> "Blocked"
 
-	7. "Ready" -> (suspend) -> "Ready/suspended"
+  7. "Ready" -> (suspend) -> "Ready/suspended"
 
-	8. "Ready/suspended" -> (suspend) -> "Ready"
+  8. "Ready/suspended" -> (suspend) -> "Ready"
 
 Exception
 ------------------
@@ -73,7 +73,7 @@ Exception
 3. SWI: software interrupt (Supervisor call, cmd)
 
 Supervisor call (=system call) Use: SWI
-	User mode -> System mode
+  User mode -> System mode
 
 *time quantum*: system call... Timer(H/W) -> ISR -> "os ~> CPU"
 *Trap*: unintended exception
@@ -83,10 +83,10 @@ Cause of process err
 1. process isolation
 2. synchronization
 3. mutual execlusion    e.g. if "process 1" use resource 'A',
-									another process can't access 'A'.
+                  another process can't access 'A'.
 4. deadlock
-	one of process get resource 'A',
-		don't release resource 'A'. => use scheduling
+  one of process get resource 'A',
+    don't release resource 'A'. => use scheduling
 
 
 *process control block (PCB)*
@@ -96,25 +96,25 @@ Cause of process err
 
 PCB::
 
-	Identifier
-	---------------
-	State
-	---------------
-	Priroity
-	---------------
-	Program counter
-	---------------
-	Memory pointer
-	---------------
-	Context data
-	---------------
-	I/O state
-	information
-	---------------
-	Accounting
-	information
-	---------------
-	...
+  Identifier
+  ---------------
+  State
+  ---------------
+  Priroity
+  ---------------
+  Program counter
+  ---------------
+  Memory pointer
+  ---------------
+  Context data
+  ---------------
+  I/O state
+  information
+  ---------------
+  Accounting
+  information
+  ---------------
+  ...
 
 Context switching
 ------------------
@@ -123,25 +123,25 @@ ps switching, save current ps's register & restore next ps
 multi process are use same CPU
 
 e.g.::
-	ps 1 -> ps 2 
-	
-	CPU
-	(ps 1)             ---> pc = 200
-	r1 0 				context (backup)
-	r2 1				r1 0
-	r3 100				r2 1
-	r4 200				r3 100
-	pc = 200			r4 200
+  ps 1 -> ps 2 
+  
+  CPU
+  (ps 1)             ---> pc = 200
+  r1 0         context (backup)
+  r2 1        r1 0
+  r3 100        r2 1
+  r4 200        r3 100
+  pc = 200      r4 200
 
-					 <context switching>
+           <context switching>
 
-						(jump to id 2)			 CPU
-						context (restore) --->  (ps 2)
-						r1 22					r1 22
-						r2 18					r2 18
-						r3 0					r3 0
-						r4 400					r4 400
-						pc = 1100				pc = 1100
+            (jump to id 2)       CPU
+            context (restore) --->  (ps 2)
+            r1 22          r1 22
+            r2 18          r2 18
+            r3 0          r3 0
+            r4 400          r4 400
+            pc = 1100        pc = 1100
 
 
 Process Management
@@ -152,14 +152,14 @@ Process Management
 Processor(CPU): switching process make use of "time"
 
 e.g.::
-	App 1 -> App 2 -> App 3 -> App 4 -> App 1 -> ... (every 200ms)
+  App 1 -> App 2 -> App 3 -> App 4 -> App 1 -> ... (every 200ms)
 
 Memory: switching process make use of "space"
 
 e.g.::
-	App 1 (addr 1000 ~ 2000)
-	App 2 (addr 5000 ~ 8000)
-	App 3 (addr 12000 ~ 12500)
+  App 1 (addr 1000 ~ 2000)
+  App 2 (addr 5000 ~ 8000)
+  App 3 (addr 12000 ~ 12500)
 
 Process New-creation
 ------------------
@@ -218,8 +218,8 @@ Page
 ------------------
 
 program ... Virtual Memory (paging)
-			=> OS (MMU):
-				=> Physical Memory
+      => OS (MMU):
+        => Physical Memory
 
 size >= 4kb: Unit of Memory Management Unit
 
@@ -236,10 +236,10 @@ Modes (Hardware)
 - more-privileged mode
 
 Kernel::
-	Process Management: scheduling, sync(resource share), IPC
-	Memory Management: page, swapping, segment...
-	I/O Management:buffer, I/O channels, Interrupt, Monitoring...
-	Support Functionsi:
+  Process Management: scheduling, sync(resource share), IPC
+  Memory Management: page, swapping, segment...
+  I/O Management:buffer, I/O channels, Interrupt, Monitoring...
+  Support Functionsi:
 
 Mode switching
 ------------------
